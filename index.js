@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Button, Box, Typography, Container } from '@mui/material';
 
-import { RecordView } from './src/component/recordView';
+import { DataView } from './src/component/dataView';
 import { MainForm } from './src/component/mainForm';
 import { PayForm } from './src/component/payForm';
 import { TransferForm } from './src/component/transferForm';
@@ -46,7 +46,7 @@ function MainPage() {
 
                 </Box>
                 <Box sx={{ flex: 2 }}>
-                    <Link to="/viewRecord">
+                    <Link to="/viewData">
                         <Button>
                             View
                         </Button>
@@ -74,7 +74,7 @@ export class Root extends React.Component {
             <Router>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
-                    <Route path="/viewRecord" element={<RecordView />} />
+                    <Route path="/viewData" element={<DataView />} />
                     <Route path="/form" element={<MainForm />} >
                         <Route path="pay" element={<PayForm />} />
                         <Route path="transfer" element={<TransferForm />} />

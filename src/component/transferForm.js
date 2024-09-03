@@ -1,13 +1,8 @@
 import React from 'react';
 
-export class TransferForm extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+export function TransferForm() {
 
-    render() {
-        return (
-            <h1>Transfer</h1>
-        );
-    }
+    return (
+        <h1>Transfer</h1>
+    );
 }

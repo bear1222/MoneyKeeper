@@ -44,6 +44,15 @@ export function MainForm() {
                                 </Button>
                             </Link>
                         </Box>
+                        <Box
+                            sx={{ flex: 4 }}
+                        >
+                            <Link to="..">
+                                <Button>
+                                    返回
+                                </Button>
+                            </Link>
+                        </Box>
                     </Box>
                 </Container>
             )}

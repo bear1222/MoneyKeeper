@@ -1,6 +1,18 @@
 {
   "rules": {
-    ".read": "now < 1727712000000",  // 2024-10-1
-    ".write": "now < 1727712000000",  // 2024-10-1
+    ".read": false,
+    ".write": false,
+    "TotalList":{
+      ".read": true, 
+      ".write": true
+    },
+    "AnaylysisList":{
+      ".read": true, 
+      ".write": true
+    },
+    "RecordList":{
+      ".read": true, 
+      ".write": true
+    }
   }
 }
