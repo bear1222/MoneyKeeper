@@ -38,10 +38,8 @@ function cntRemaining(money, way) {
 export function getTotalMoney(callback) {
     const totalList = 'TotalList/';
     let ret = {};
-    console.log('start get total money');
     allWay.forEach((ele) => {
         const eng = ele.eng;
-        console.log('ref:', totalList + eng + '/money');
         firebase.database().ref(totalList + eng + '/money').on('value', (snapshot) => {
             console.log(eng + ':', snapshot.val());
             ret[eng] = Number(snapshot.val());
@@ -57,4 +55,19 @@ export function getTotalMoney(callback) {
             firebase.database().ref(totalList + ele.eng + '/money').off();
         });
     };
+}
+
+export function getAllRecord(callback) {
+    const recordList = 'RecordList';
+    let records = [];
+    const ref = firebase.database().ref(recordList);
+    const listener = ref.on('child_added', (snapshot) => {
+        const newRec = snapshot.val();
+        records.push(newRec);
+        if (typeof callback === 'function')
+            callback(newRec);
+    }, (error) => {
+        console.error(error);
+    });
+    return () => ref.off('child_added', listener);
 }

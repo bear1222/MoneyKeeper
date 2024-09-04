@@ -7,6 +7,8 @@ import { DataView } from './src/component/dataView';
 import { MainForm } from './src/component/mainForm';
 import { PayForm } from './src/component/payForm';
 import { TransferForm } from './src/component/transferForm';
+import { RecordView } from './src/component/recordView';
+import { AnalysisView } from './src/component/analysisView';
 
 function MainPage() {
     return (
@@ -46,7 +48,7 @@ function MainPage() {
 
                 </Box>
                 <Box sx={{ flex: 2 }}>
-                    <Link to="/viewData">
+                    <Link to="/view">
                         <Button>
                             View
                         </Button>
@@ -74,7 +76,11 @@ export class Root extends React.Component {
             <Router>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
-                    <Route path="/viewData" element={<DataView />} />
+                    <Route path="/view" element={<DataView />}>
+                        <Route index element={<RecordView />} />
+                        <Route path="record" element={<RecordView />} />
+                        <Route path="analysis" element={<AnalysisView />} />
+                    </Route>
                     <Route path="/form" element={<MainForm />} >
                         <Route path="pay" element={<PayForm />} />
                         <Route path="transfer" element={<TransferForm />} />
